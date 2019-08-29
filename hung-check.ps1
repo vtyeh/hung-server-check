@@ -23,9 +23,6 @@ If ($? -eq $false) { $ping=1 }
 # If (New-Object System.Net.Sockets.TCPClient -ArgumentList $s,3389) { $rdp=0}
 # If ($? -eq $false) { $rdp=1 }
 
-# $ts = gwmi -Namespace root\cimv2\TerminalServices -class Win32_TerminalServiceSetting -computername $s
-# $rdp = $ts.AllowTSConnections
-
 Try {
     $service_check = Get-Service -ComputerName $s -Name Winmgmt
     If ($service_check.Status -eq "Running") {
